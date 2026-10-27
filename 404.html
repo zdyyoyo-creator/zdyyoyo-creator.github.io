@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 · 页面走丢了</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    /* 404 页专用：把内容居中 */
+    .notfound {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 32px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .notfound__code {
+      font-size: clamp(5rem, 20vw, 11rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0;
+    }
+    .notfound__title { font-size: clamp(1.2rem, 4vw, 1.6rem); margin: 8px 0 10px; }
+    .notfound__text { color: var(--text-muted); margin-bottom: 26px; }
+    .notfound__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <main class="notfound">
+    <div>
+      <p class="notfound__code">404</p>
+      <h1 class="notfound__title">这个页面不存在</h1>
+      <p class="notfound__text">可能是链接打错了，或者这个页面还没写。</p>
+      <div class="notfound__actions">
+        <a class="btn btn--primary" href="./">回到首页</a>
+        <a class="btn btn--ghost" href="javascript:history.back()">返回上一页</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

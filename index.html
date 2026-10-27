@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============ 需要你修改的地方都带 【改】 标记 ============ -->
+  <title>zdy · 个人主页</title> <!-- 【改】网站标题 -->
+  <meta name="description" content="zdy 的个人主页：前端开发、自动化脚本与开源项目。" /> <!-- 【改】搜索摘要 -->
+  <meta name="author" content="zdy" />
+  <meta name="theme-color" content="#6366f1" />
+
+  <!-- 社交分享卡片（把链接发到微信/QQ/X 时的预览信息）。需要预览图就加一行：
+       <meta property="og:image" content="https://你的用户名.github.io/assets/share.png" /> -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="zdy · 个人主页" />
+  <meta property="og:description" content="前端开发、自动化脚本与开源项目。" />
+  <meta property="og:url" content="https://你的用户名.github.io/" /> <!-- 【改】你的真实网址 -->
+
+  <!-- 站点图标：内联 SVG，不用额外图片文件 -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%236366f1'/><text x='50' y='68' font-size='52' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'>Z</text></svg>" />
+
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- 防闪烁：在页面渲染前就把上次选择的主题写上去 -->
+  <script>
+    (function () {
+      // 标记"JS 可用"：滚动动画只在有 JS 时才把内容先隐藏，
+      // 否则禁用 JS 的浏览器/爬虫会看到一片空白。
+      document.documentElement.classList.add("js");
+      try {
+        var t = localStorage.getItem("site-theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <!-- 顶部阅读进度条 -->
+  <div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ==================== 导航栏 ==================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a class="brand" href="#home">
+        <span class="brand__badge">Z</span>
+        <span class="brand__text">zdy</span>
+      </a>
+
+      <nav class="nav__menu" id="navMenu" aria-label="主导航">
+        <a class="nav__link is-active" href="#home">首页</a>
+        <a class="nav__link" href="#about">关于</a>
+        <a class="nav__link" href="#skills">技能</a>
+        <a class="nav__link" href="#projects">项目</a>
+        <a class="nav__link" href="#files">文件</a>
+        <a class="nav__link" href="#contact">联系</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="切换深浅色主题" title="切换深浅色主题">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.2 8.2 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </button>
+
+        <button class="icon-btn nav__burger" id="menuToggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navMenu">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ==================== 首屏 ==================== -->
+    <section class="hero" id="home">
+      <div class="hero__glow hero__glow--a" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <p class="hero__eyebrow reveal">
+          <span class="pulse"></span> 目前可接新项目
+        </p>
+
+        <h1 class="hero__title reveal">
+          你好，我是 <span class="gradient-text">zdy</span>
+        </h1>
+
+        <p class="hero__subtitle reveal">
+          前端开发 · 自动化脚本 · 把想法做成能用的东西。
+        </p>
+
+        <p class="hero__desc reveal">
+          我写网页、写脚本，也维护几个开源小工具。<br />
+          这个页面就是一份可复制的 GitHub Pages 模板。
+        </p>
+
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="#projects">
+            看看项目
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#contact">联系我</a>
+        </div>
+
+        <dl class="hero__stats reveal">
+          <div class="stat"><dt>项目</dt><dd>3</dd></div>
+          <div class="stat"><dt>代码年数</dt><dd>4+</dd></div>
+          <div class="stat"><dt>回复时间</dt><dd>24h</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ==================== 关于 ==================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__kicker">01 · 关于</span>
+          <h2 class="section__title">我是谁</h2>
+        </header>
+
+        <div class="about">
+          <div class="about__text reveal">
+            <p>
+              我是一名独立开发者，主要用 HTML/CSS/JavaScript 和 Python 解决问题。
+              喜欢把重复劳动自动化，也喜欢做那种"打开就能用"的轻量工具。
+            </p>
+            <p>
+              目前关注的方向是：<strong>静态站点与前端性能</strong>、
+              <strong>数据抓取与自动化</strong>、<strong>小而美的开发者工具</strong>。
+            </p>
+            <p class="muted">
+              这个网站没有后台、没有数据库，全部是静态文件，GitHub 一提交就自动上线，
+              免费、快、几乎不会被墙。它也是学习"一个网站到底由什么组成"最直接的方式。
+            </p>
+          </div>
+
+          <aside class="card facts reveal">
+            <h3 class="facts__title">速览</h3>
+            <ul class="facts__list">
+              <li><span>所在地</span><span>中国 · 你的城市</span></li> <!-- 【改】 -->
+              <li><span>身份</span><span>独立开发者</span></li>
+              <li><span>技术栈</span><span>HTML / CSS / JS / Python</span></li>
+              <li><span>在学</span><span>TypeScript、Rust</span></li>
+              <li><span>可合作</span><span class="ok">是</span></li>
+            </ul>
+            <a class="btn btn--sm btn--ghost facts__cta" href="https://github.com/" target="_blank" rel="noopener">
+              GitHub 主页 ↗
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 技能 ==================== -->
+    <section class="section section--tint" id="skills">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__kicker">02 · 技能</span>
+          <h2 class="section__title">我会什么</h2>
+        </header>
+
+        <div class="skills">
+          <article class="card skill reveal">
+            <h3>前端</h3>
+            <p class="muted">语义化 HTML、现代 CSS 布局、原生 JS，不放框架也能做出交互。</p>
+            <ul class="tags">
+              <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>响应式</li>
+            </ul>
+          </article>
+
+          <article class="card skill reveal">
+            <h3>工程化</h3>
+            <p class="muted">版本管理、持续部署、静态站点托管，一条 push 完成发布。</p>
+            <ul class="tags">
+              <li>Git</li><li>GitHub Actions</li><li>GitHub Pages</li><li>Markdown</li>
+            </ul>
+          </article>
+
+          <article class="card skill reveal">
+            <h3>脚本与数据</h3>
+            <p class="muted">用 Python 处理文件、跑批任务、抓数据、做小工具。</p>
+            <ul class="tags">
+              <li>Python</li><li>requests</li><li>pandas</li><li>自动化</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 项目 ==================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__kicker">03 · 项目</span>
+          <h2 class="section__title">做过什么</h2>
+          <p class="muted section__desc">下面是占位卡片，把标题、描述和链接换成你自己的仓库即可。</p>
+        </header>
+
+        <div class="projects">
+          <article class="card project reveal">
+            <div class="project__top">
+              <span class="project__emoji" aria-hidden="true">🧩</span>
+              <span class="badge">开源</span>
+            </div>
+            <h3 class="project__title">项目一 · 静态站点模板</h3>
+            <p class="muted">本页面使用的模板：零依赖、自动深色模式、移动端适配。</p>
+            <ul class="tags tags--sm"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+            <a class="project__link" href="https://github.com/" target="_blank" rel="noopener">查看源码 ↗</a>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project__top">
+              <span class="project__emoji" aria-hidden="true">⚙️</span>
+              <span class="badge">工具</span>
+            </div>
+            <h3 class="project__title">项目二 · 批量文件整理脚本</h3>
+            <p class="muted">按规则重命名、归档下载文件夹，一条命令搞定。</p>
+            <ul class="tags tags--sm"><li>Python</li><li>CLI</li></ul>
+            <a class="project__link" href="https://github.com/" target="_blank" rel="noopener">查看源码 ↗</a>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project__top">
+              <span class="project__emoji" aria-hidden="true">📊</span>
+              <span class="badge">数据</span>
+            </div>
+            <h3 class="project__title">项目三 · 数据看板</h3>
+            <p class="muted">抓取公开数据，生成一张静态图表页面，每天自动更新。</p>
+            <ul class="tags tags--sm"><li>Python</li><li>Actions</li></ul>
+            <a class="project__link" href="https://github.com/" target="_blank" rel="noopener">查看源码 ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 我的文件 ==================== -->
+    <!-- 这里的内容由 files/files.js 里的清单自动生成，不用手写 HTML -->
+    <section class="section section--tint" id="files">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__kicker">04 · 文件</span>
+          <h2 class="section__title">我的文件</h2>
+          <p class="muted section__desc">
+            简历、作品、资料都放这儿。往 <code>files/</code> 文件夹丢文件、在
+            <code>files/files.js</code> 里加一行，下面的卡片就会自动出现。
+          </p>
+        </header>
+
+        <ul class="files" id="fileList">
+          <!-- JS 会把 files/files.js 里的清单渲染到这里 -->
+        </ul>
+
+        <noscript>
+          <p class="muted">你的浏览器禁用了 JavaScript，看不到文件列表。可以直接访问 <code>files/</code> 目录。</p>
+        </noscript>
+
+        <p class="files__hint muted">
+          卡片没出现？检查 <code>files/files.js</code> 里 <code>file</code> 的路径是否写成
+          <code>files/文件名</code>，改完刷新页面即可。
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== 联系 ==================== -->
+    <section class="section" id="contact">
+      <div class="container container--narrow">
+        <div class="contact reveal">
+          <span class="section__kicker">05 · 联系</span>
+          <h2 class="contact__title">想聊点什么？</h2>
+          <p class="muted">
+            项目合作、技术交流、或者只是打个招呼都可以。邮件一般 24 小时内回复。
+          </p>
+
+          <!-- 【改】换成你的邮箱 -->
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="mailto:you@example.com">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.6 6.4l8.4 6 8.4-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              you@example.com
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+
+          <p class="contact__hint muted">
+            提示：把上面的邮箱换成真实地址；如果不想公开邮箱，可以写"通过 GitHub Issue 联系我"。
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 页脚 ==================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2025</span> zdy · 使用 GitHub Pages 托管</p>
+      <p class="muted">纯静态 · 零依赖 · 手动更新</p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+  <!-- 文件清单：想加文件只改 files/files.js 这一个文件 -->
+  <script src="files/files.js"></script>
+  <script src="assets/main.js" defer></script>
+</body>
+</html>
